@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Winky Sans", sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-color: rgb(3, 11, 59);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.memory-game {
+    width: 540px;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    transition: filter 0.8s ease; /* Smooth transition for blur effect */
+}
+
+.memory-game.blurred {
+    filter: blur(5px);          /*Apply a slight blur*/
+}
+
+.memory-card{
+    width: calc(25% - 10px);
+    height: calc(33.33% - 10px);
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active{
+    transform: scale(0.9);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip{
+    transform: rotateY(180deg)
+}
+
+.front-face, .back-face{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #1c7ccc;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front-face{
+    transform: rotateY(180deg);
+}
+
+button{
+    height: 50px;
+    width: 150px;
+    font-size: 25px;
+    border-radius: 15px;
+    font-family: 600;
+    transform: scale(1);
+}
+
+button:active{
+    transform: scale(0.9);
+}
